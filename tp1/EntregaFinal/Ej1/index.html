@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<title>TP1-EJ1</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container-fluid">
+				<div class="row">
+					<h3>Definir una matriz de 100 x 100 y completarla con valores enteros random</h2>
+				</div>
+				<div class="row">
+					<li> incisos:
+						<ul>a. Escribir una función que retorne el valor máximo de toda la matriz</ul>
+						<ul>b. Escribir una función que retorne el valor máximo contenido en las filas pares y el valor mínimo en las filas impares</ul>
+						<ul>c. Calcular el valor promedio de cada fila y guardarlos en un arreglo.</ul>
+					</li>
+				</div>
+				<div class="row">
+					<div class="col ">
+						<div class="row align-items-center btn-group-vertical">
+							<button id="maximo" class="btn btn-info btn-sm">Elemento Max de la matriz</button>
+							<button id="MaxOrMin" class="btn btn-info btn-sm">Maximo en par, Min en impar</button>
+							<button id="promedio" class="btn btn-info btn-sm">Promedio por fila</button>
+						</div>
+						<div class="row align-items-center">
+							<input type="number" value=100 min="2" max="100" id="n" class="form-control" >
+							<input type="number" value=100 min="2" max="100" id="m" class="form-control" >
+							<button id="btn" class="btn btn-primary">Submit</button>
+						</div>
+						
+					</div>
+					<div class="col" id="matrix" ></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="Ej1.js"></script>
+</html>
+
