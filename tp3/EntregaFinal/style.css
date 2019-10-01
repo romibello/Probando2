@@ -13,6 +13,15 @@
     100% {background-position: -641px;}
 }
 
+.winner{
+    margin: auto;
+    width: 1000px;
+    height: 230px;
+    background: url('/img/winner.png') left center;
+    background-size: auto;
+	
+}
+
 #character{
     width: 49px;
     height: 80px;
