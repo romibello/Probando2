@@ -1,15 +1,14 @@
 class myCharacter {
     constructor() {
       this.domElement = document.getElementById('character');
-      this.width = this.domElement.getBoundingClientRect().width;
-      this.height = this.domElement.getBoundingClientRect().height;
-      this.position = {top: this.domElement.getBoundingClientRect().top, left: this.domElement.offsetLeft};
-      this.gameOver = document.getElementById('sound');
+      this.w = document.getElementById('character').getBoundingClientRect().width;
+      this.h = document.getElementById('character').getBoundingClientRect().height;
+      this.pos = {top: this.domElement.getBoundingClientRect().top, left: this.domElement.offsetLeft};
     }
   
     updatePosition() {
-      this.position.top = this.domElement.getBoundingClientRect().top;
-      this.position.left = this.domElement.offsetLeft;
+      this.pos.top = this.domElement.getBoundingClientRect().top;
+      this.pos.left = this.domElement.offsetLeft;
     }
 
     init() {
@@ -19,14 +18,26 @@ class myCharacter {
         this.domElement.style.left = '100px';
         this.domElement.style.bottom = '5px';
     }
-    checkCollision(element) {
+
+    horizontalCollision(e){
+        if(this.pos.left < e.pos.left + e.w && this.pos.left + this.w > e.pos.left){
+            return true;
+        }
+        return false;
+    }
+
+    verticalCollision(e){
+        if(this.pos.top < e.pos.top + e.h && this.pos.top + this.h  > e.pos.top){
+            return true;
+        }
+        return false;
+    }
+
+    
+    checkCollision(e) {
         this.updatePosition();
-        element.updatePosition();
-        
-        if (this.position.left < element.position.left + element.width &&
-        this.position.left + this.width > element.position.left &&
-        this.position.top < element.position.top + element.height &&
-        this.position.top + this.height > element.position.top) {
+        e.updatePosition();
+        if ( this.horizontalCollision(e) && this.verticalCollision(e)) {
         return true;
         }
         return false;
@@ -35,11 +46,11 @@ class myCharacter {
         this.updatePosition();
         switch (key) {
         case 37:
-            this.domElement.style.left = this.position.left - 20 + 'px';
+            this.domElement.style.left = this.pos.left - 20 + 'px';
             break;
             
         case 39:
-            this.domElement.style.left = this.position.left + 20 + 'px';
+            this.domElement.style.left = this.pos.left + 20 + 'px';
             
         default:
             break;
@@ -52,7 +63,6 @@ class myCharacter {
         }, 700);
     }
     die() {
-        this.dieAudio.play();
         this.domElement.classList.add('die');
         setTimeout(() => {
         this.domElement.classList.remove('die');
@@ -62,6 +72,13 @@ class myCharacter {
         this.domElement.style.left = '100px';
         this.domElement.style.bottom = '100px';
         this.domElement.classList.remove('CharacterWalk');
+    }
+
+    getMilkshake(){
+        this.domElement.classList.add('milkshake');
+        setTimeout(() => {
+        this.domElement.classList.remove('milkshake');
+        }, 1200);
     }
     
 }
