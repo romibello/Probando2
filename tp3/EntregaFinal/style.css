@@ -1,0 +1,104 @@
+.main{
+    margin: auto;
+    width: 800px;
+    height: 230px;
+    background: url('back.png') left center;
+    background-size: auto;
+	background-repeat: repeat-x;
+    animation: back 8s linear infinite;
+    border: black 3px solid;
+}
+
+@keyframes back {
+    100% {background-position: -641px;}
+}
+
+.CharacterWalk{
+    width: 49.6px;
+    height: 80px;
+    position: absolute;
+    top: 160.5px;
+    background: url('b.png') left center;
+    animation: play 0.9s steps(6) infinite;
+}
+
+@keyframes play {
+    100% {background-position: -309px;}
+}
+
+.CharacterJump{
+    width: 49.6px;
+    height: 80px;
+    position: absolute;
+    top: 160.5px;
+    background: url('j.png') left center;
+    animation: jump 0.9s steps(3) ;
+}
+
+
+@keyframes jump {
+    0% {transform: translate(0px,0px);}
+    25% {transform: translate(0px,-100px);}
+    50% {transform: translate(0px,-150px);}
+    75% {transform: translate(0px,-100px);}
+    100% {transform: translate(0px,0px);}
+}
+
+.die {
+    animation: die linear 1.2s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+}
+
+@keyframes die {
+    0% {transform: translate(0px,0px)  rotate(0deg);}
+    15% {transform: translate(-63px,-112px)  rotate(-54deg);}
+    50% {transform: translate(-176px,-176px)  rotate(-180deg);}
+    85% {transform: translate(-290px,-159px)  rotate(-302deg);}
+    100% {transform: translate(-357px,-85px)  rotate(-360deg);}
+}
+
+/* obstaculo */
+#obstaculo {
+    position: absolute;
+    bottom: 5px;
+    right: -100px;
+    width: 91px;
+    height: 100px;
+    background: url(../images/zombie.png);
+    z-index: 1;
+}
+.obstaculoanimate {
+    animation: obstaculoanimate 0.8s steps(2) infinite;
+}
+@keyframes obstaculoanimate {
+    from {background-position-x: 0px;}
+    to {background-position-x: -182px;}
+}
+.obstaculomove {
+    animation: obstaculomove 3s linear infinite;
+}
+@keyframes obstaculomove {
+    from {right: -100px;}
+    to {right: 1200px;}
+}
+
+/* puntos */
+#bonus {
+    position: absolute;
+    bottom: 600px;
+    left: 50px;
+    width: 109px;
+    height: 700px;
+    background: url(../images/spider.png);
+    z-index: 1;
+}
+.sdrop {
+    animation: sdrop 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+@keyframes sdrop {
+    0% {bottom: 600px;}
+    40% {bottom: 5px;}
+    50% {bottom: 600px;}
+    100% {bottom: 600px;}
+}
